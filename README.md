@@ -1,4 +1,4 @@
-# Practice Code Challenge Theater Work 
+# Practice Code Challenge Theater Work
 
 ## Learning Goals
 
@@ -11,17 +11,17 @@
 
 The Flatiron Theater Company is holding Auditions!
 
-An actor may only `Audition` for one `Role`, while a `Role` may have many `Auditions` for it! 
+An actor may only `Audition` for one `Role`, while a `Role` may have many `Auditions` for it!
 
 ![one to many](https://curriculum-content.s3.amazonaws.com/phase-3/active-record-theater-work/one_to_many.png)
 
-## Getting started 
+## Getting started
 
 run `bundle install`
 
-## Migrations 
+## Migrations
 
-Create your migrations. 
+Create your migrations.
 
 - `Auditions` should have an actor(string), location(string) and belong_to a role(integer)
 
@@ -29,20 +29,20 @@ Create your migrations.
 
 #### `auditions` Table
 
-| Column | Type |
-| --- | --- |
-| actor | string |
-| location | string |
-| phone | integer |
-| hired | boolean |
-| role_id | integer |
+| Column   | Type    |
+| -------- | ------- |
+| actor    | string  |
+| location | string  |
+| phone    | integer |
+| hired    | boolean |
+| role_id  | integer |
 
 #### `roles` Table
 
-| Column | Type |
-| --- | --- |
+| Column         | Type   |
+| -------------- | ------ |
 | character_name | string |
-  
+
 ## Relationship
 
 - What associations will this need?
@@ -55,10 +55,12 @@ Create your migrations.
 
 ## Roles
 
-- `Role#auditions` returns all of the auditions associated with this role 
+- `Role#auditions` returns all of the auditions associated with this role
 - `Role#actors` returns an array of names from the actors associated with this role
 - `Role#locations` returns an array of locations from the auditions associated with this role
 - `Role#lead` returns the first instance of the audition that was hired for this role or returns a string 'no actor has been hired for this role'
 - `Role#understudy` returns the second instance of the audition that was hired for this role or returns a string 'no actor has been hired for understudy for this role'
 
+a = Audition.find_by(role_id: 1)
 
+Audition.where(:role_id => 1).first
